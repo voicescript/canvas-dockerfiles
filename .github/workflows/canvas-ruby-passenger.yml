@@ -3,7 +3,7 @@ name: canvas-ruby-passenger
 on:
   push:
     branches:
-      - "main"
+      - "master"
 
 jobs:
   docker:
@@ -23,7 +23,7 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v3
         with:
-          context: .
+          context: ruby-passenger/2.7/
           platforms: linux/amd64,linux/arm64
           push: true
           tags: tuttinator/canvas-ruby-passenger:latest
