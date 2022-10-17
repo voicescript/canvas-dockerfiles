@@ -17,7 +17,7 @@
 worker_processes <%= ENV.fetch('NGINX_WORKER_COUNT', (RAILS_ENV == 'production' ? 'auto' : 1)) %>;
 pid /run/nginx.pid;
 daemon off;
-user docker;
+user <%= ENV.fetch('PASSENGER_NGINX_USER', 'docker') %>;
 
 # Add files to white list env variables
 include /usr/src/nginx/main.d/*.conf;
@@ -53,8 +53,8 @@ http {
     <% end %>
     error_log /var/log/nginx/error.log;
 
-    passenger_default_user docker;
-    passenger_user docker;
+    passenger_default_user <%= ENV.fetch('PASSENGER_DEFAULT_USER', 'docker') %>;
+    passenger_user <%= ENV.fetch('PASSENGER_USER', 'docker') %>;
 
     passenger_disable_log_prefix on;
     passenger_friendly_error_pages off;
