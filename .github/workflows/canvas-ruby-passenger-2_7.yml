@@ -1,4 +1,4 @@
-name: canvas-ruby-passenger
+name: canvas-ruby-passenger-2.7
 
 on:
   push:
@@ -26,4 +26,4 @@ jobs:
           context: ruby-passenger/2.7/
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: tuttinator/canvas-ruby-passenger:latest
+          tags: tuttinator/canvas-ruby-passenger:2.7
